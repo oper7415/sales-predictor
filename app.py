@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from utils import load_sheet, train_model, predict_target, get_target_options
 
+
 st.set_page_config(page_title="📊 범용 매출 예측기", layout="wide")
 st.title("📊 범용 매출 예측 시스템")
 
