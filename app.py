@@ -14,8 +14,9 @@ try:
     df = load_sheet(SHEET_URL)
     st.success("✅ 구글시트 데이터 로드 완료")
 except Exception as e:
-    st.error(f"❌ Google Sheets 로딩 중 오류 발생: {e}")
+    st.exception(e)  # ❗ 이 줄을 st.error → st.exception 으로 바꾸면 자세한 오류 확인 가능
     st.stop()
+
 
 # ✅ 날짜 입력 (직접 입력 가능)
 st.subheader("📅 예측할 날짜 선택")
