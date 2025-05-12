@@ -15,6 +15,12 @@ def load_sheet(sheet_url):
     worksheet = sheet.get_worksheet(0)
     data = worksheet.get_all_records()
     return pd.DataFrame(data)
+    try:
+    df = load_sheet(SHEET_URL)
+except Exception as e:
+    st.error(f"❌ Google Sheets 로딩 중 오류 발생: {e}")
+    st.stop()
+
 
 def get_target_options(df):
     return [col for col in df.columns if df[col].dtype in [np.float64, np.int64, int, float]]
